@@ -6,3 +6,20 @@ Hugo directory and insert:
 
 or whatever comment engine you want -> https://gohugo.io/content-management/comments/#readout
 -->
+{{ if .Site.Params.enableGitment }}
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css"/>
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .Params.gitmentId }}',  // 可选, 默认为 location.href
+    owner: 'hackerchai',
+    repo: 'blog',
+    oauth: {
+      client_id: 'cba27a7f5074728231a2',
+      client_secret: '943ee063fc236367670145eaf736b9edac037be7',
+    }
+  })
+  gitment.render('git-comments')
+</script>
+{{ end }}
