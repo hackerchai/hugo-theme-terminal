@@ -1,5 +1,5 @@
 {
-  "name": "terminal",
+  "name": "hugo-terminal",
   "version": "2.1.0",
   "main": "index.js",
   "author": "Radosław Kozieł <@panr> <radoslaw.koziel@gmail.com>",

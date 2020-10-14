@@ -1,4 +1,5 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="x-dns-prefetch-control " content="on">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
   content="{{ if .IsHome }}{{ .Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
@@ -10,15 +11,13 @@
 {{ template "_internal/google_analytics.html" . }}
 
 <!-- Theme CSS -->
-<link rel="preload" href="{{ "assets/style.css" | absURL }}" as="style">
-<link rel="preload" href="{{ "assets/main.js" | absURL }}" as="script">
-<link rel="preload" href="{{ "assets/prism.js" | absURL }}" as="script">
-
-<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/style.css">
 {{ if (isset .Params "color") }}
-<link rel="stylesheet" href="{{ (printf "assets/%s.css" .Params.color) | absURL }}">
+<link rel="stylesheet"
+  href="{{ (printf "https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/%s.css" .Params.color) | absURL }}">
 {{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
-<link rel="stylesheet" href="{{ (printf "assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
+<link rel="stylesheet"
+  href="{{ (printf "https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
 {{ end }}
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
@@ -27,12 +26,16 @@
 {{- end }}
 
 <!-- Icons -->
-<link href="{{ "images/favicon/apple-touch-icon.png" | absURL }}" rel="apple-touch-icon" sizes="180x180">
-<link href="{{ "images/favicon/android-chrome-192x192.png" | absURL }}" rel="icon" type="image/png" sizes="192x192">
-<link href="{{ "images/favicon/favicon-32x32.png" | absURL }}" rel="icon" type="image/png" sizes="32x32">
-<link href="{{ "images/favicon/favicon-16x16.png" | absURL }}" rel="icon" type="image/png" sizes="16x16">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.1.1/blog/favicon/apple-touch-icon.png" rel="apple-touch-icon"
+  sizes="180x180">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.1.1/blog/favicon/android-chrome-192x192.png" rel="icon"
+  type="image/png" sizes="192x192">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.1.1/blog/favicon/favicon-32x32.png" rel="icon" type="image/png"
+  sizes="32x32">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.1.1/blog/favicon/favicon-16x16.png" rel="icon" type="image/png"
+  sizes="16x16">
 {{ if isset $.Site.Params "favicon" }}
-<link rel="shortcut icon" href="{{ $.Site.Params.favicon | absURL }}">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/hackerchai@0.1.1/blog/favicon.ico">
 {{ else }}
 <link rel="shortcut icon"
   href="{{ printf "img/favicon/%s.png" ($.Site.Params.ThemeColor | default "orange") | absURL }}">
