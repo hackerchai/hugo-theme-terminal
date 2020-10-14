@@ -29,7 +29,10 @@
 {{- end }}
 
 <!-- Icons -->
-<link rel="apple-touch-icon" href="{{ "img/apple-touch-icon-192x192.png" | absURL }}">
+<link href="{{ "images/favicon/apple-touch-icon.png" | absURL }}" rel="apple-touch-icon" sizes="180x180">
+<link href="{{ "images/favicon/android-chrome-192x192.png" | absURL }}" rel="icon" type="image/png" sizes="192x192">
+<link href="{{ "images/favicon/favicon-32x32.png" | absURL }}" rel="icon" type="image/png" sizes="32x32">
+<link href="{{ "images/favicon/favicon-16x16.png" | absURL }}" rel="icon" type="image/png" sizes="16x16">
 {{ if isset $.Site.Params "favicon" }}
 <link rel="shortcut icon" href="{{ $.Site.Params.favicon | absURL }}">
 {{ else }}
@@ -51,7 +54,8 @@
 <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta property="og:description"
+  content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ $.Site.Title }}" />
 {{ if and (not .IsHome) (isset .Params "cover") }}
