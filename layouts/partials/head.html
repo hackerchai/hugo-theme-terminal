@@ -1,5 +1,6 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="x-dns-prefetch-control " content="on">
+<link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
   content="{{ if .IsHome }}{{ .Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
@@ -9,6 +10,31 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 {{ template "_internal/google_analytics.html" . }}
+
+<!-- Preload Theme CSS -->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/style.css" as="style">
+{{ if (isset .Params "color") }}
+<link rel="preload"
+  href="{{ (printf "https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/%s.css" .Params.color) | absURL }}"
+  as="style">
+{{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
+<link rel="preload"
+  href="{{ (printf "https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/%s.css" $.Site.Params.ThemeColor) | absURL }}"
+  as="style">
+{{ end }}
+
+{{ if (fileExists "static/style.css") -}}
+<link rel="preload" href="{{ "style.css" | absURL }}" as="style">
+{{- end }}
+
+<!-- Preload JS script and Font-->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/main.js" as="script">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/prism.js" as="script">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/cfga@1.0.3" as="script">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Regular.woff" as="font"
+  type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Bold.woff" as="font"
+  type="font/woff" crossorigin="anonymous">
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.0/static/assets/style.css">
