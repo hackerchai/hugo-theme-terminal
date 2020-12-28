@@ -13,36 +13,28 @@
 <!-- Preload Theme CSS -->
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/style.css" as="style">
 {{ if (isset .Params "color") }}
-<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
-  .Params.color) | absURL }}" as="style">
+  <link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css" .Params.color) | absURL }}" as="style">
 {{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
-<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
-  $.Site.Params.ThemeColor) | absURL }}" as="style">
+  <link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css" $.Site.Params.ThemeColor) | absURL }}" as="style">
 {{ end }}
 
 {{ if (fileExists "static/style.css") -}}
-<link rel="preload" href="{{ " style.css" | absURL }}" as="style">
+  <link rel="preload" href="{{ " style.css" | absURL }}" as="style">
 {{- end }}
 
 <!-- Preload JS script and Font-->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/main.js" as="script"
-  crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/prism.js" as="script"
-  crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/main.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/prism.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/cfga@1.0.3" as="script">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Regular.woff" as="font"
-  type="font/woff" crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Bold.woff" as="font"
-  type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Bold.woff" as="font" type="font/woff" crossorigin="anonymous">
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/style.css">
 {{ if (isset .Params "color") }}
-<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
-  .Params.color) | absURL }}">
+  <link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css" .Params.color) | absURL }}">
 {{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
-<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
-  $.Site.Params.ThemeColor) | absURL }}">
+  <link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
 {{ end }}
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
@@ -51,65 +43,59 @@
 {{- end }}
 
 <!-- Icons -->
-<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/apple-touch-icon.png" rel="apple-touch-icon"
-  sizes="180x180">
-<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/android-chrome-192x192.png" rel="icon"
-  type="image/png" sizes="192x192">
-<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/favicon-32x32.png" rel="icon" type="image/png"
-  sizes="32x32">
-<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/favicon-16x16.png" rel="icon" type="image/png"
-  sizes="16x16">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/android-chrome-192x192.png" rel="icon" type="image/png" sizes="192x192">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+<link href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
 {{ if isset $.Site.Params "favicon" }}
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon.ico">
+ <link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/hackerchai@0.3.0/blog/favicon.ico">
 {{ else }}
-<link rel="shortcut icon" href="{{ printf " img/favicon/%s.png" ($.Site.Params.ThemeColor | default "orange" ) | absURL
-  }}">
+ <link rel="shortcut icon" href="{{ printf " img/favicon/%s.png" ($.Site.Params.ThemeColor | default "orange" ) | absURL}}">
 {{ end }}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />
 {{ if (isset $.Site.Params "twitter") }}
-{{ if (isset $.Site.Params.Twitter "site") }}
-<meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
-{{ end }}
-<meta name="twitter:creator" content="{{ if .IsHome }}{{ $.Site.Params.Twitter.creator }}{{ else if isset .Params "
-  authortwitter" }}{{ .Params.authorTwitter }}{{ else }}{{ .Params.Author }}{{ end }}" />
+  {{ if (isset $.Site.Params.Twitter "site") }}
+    <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
+  {{ end }}
+    <meta name="twitter:creator" content="{{ if .IsHome }}{{ $.Site.Params.Twitter.creator }}{{ else if isset .Params "authortwitter" }}{{ .Params.authorTwitter }}{{ else }}{{ .Params.Author }}{{ end }}" />
 {{ end }}
 
 <!-- OG data -->
 <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description"
-  content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ $.Site.Title }}" />
 {{ if and (not .IsHome) (isset .Params "cover") }}
-<meta property="og:image" content="{{ .Param " cover" | absURL }}">
+  <meta property="og:image" content="{{ .Param "cover" | absURL }}">
 {{ else }}
-{{ if isset $.Site.Params "favicon" }}
-<meta property="og:image" content="{{ $.Site.Params.favicon | absURL }}">
-{{ else }}
-<meta property="og:image" content="{{ printf " img/favicon/%s.png" $.Site.Params.ThemeColor | absURL }}">
-{{ end }}
+  {{ if isset $.Site.Params "favicon" }}
+    <meta property="og:image" content="{{ $.Site.Params.favicon | absURL }}">
+  {{ else }}
+    <meta property="og:image" content="{{ printf "img/favicon/%s.png" $.Site.Params.ThemeColor | absURL }}">
+  {{ end }}
 {{ end }}
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 {{ range .Params.categories }}
-<meta property="article:section" content="{{ . }}" />
+  <meta property="article:section" content="{{ . }}" />
 {{ end }}
 {{ if isset .Params "date" }}
-<meta property="article:published_time" content="{{ time .Date }}" />
+  <meta property="article:published_time" content="{{ time .Date }}" />
 {{ end }}
+
 
 <!-- RSS -->
 {{ with .OutputFormats.Get "RSS" }}
-<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{ end }}
 
 <!-- JSON Feed -->
 {{ with .OutputFormats.Get "json" }}
-<link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
 {{ end }}
 
 <!-- Extended head section-->
