@@ -3,7 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
   content="{{ if .IsHome }}{{ .Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
+<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . "
+  , " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
 <meta name="robots" content="noodp" />
 <meta content="#F3AB75" name="theme-color">
 <link rel="canonical" href="{{ .Permalink }}" />
@@ -11,12 +12,12 @@
 {{ template "_internal/google_analytics.html" . }}
 
 <!-- Preload Theme CSS -->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/style.css" as="style">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/style.css" as="style">
 {{ if (isset .Params "color") }}
-<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/%s.css"
+<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
   .Params.color) | absURL }}" as="style">
 {{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
-<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/%s.css"
+<link rel="preload" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
   $.Site.Params.ThemeColor) | absURL }}" as="style">
 {{ end }}
 
@@ -25,9 +26,9 @@
 {{- end }}
 
 <!-- Preload JS script and Font-->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/main.js" as="script"
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/main.js" as="script"
   crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/prism.js" as="script"
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/prism.js" as="script"
   crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/cfga@1.0.3" as="script">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff/FiraCode-Regular.woff" as="font"
@@ -36,12 +37,12 @@
   type="font/woff" crossorigin="anonymous">
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/style.css">
 {{ if (isset .Params "color") }}
-<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/%s.css"
+<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
   .Params.color) | absURL }}">
 {{ else if and (ne $.Site.Params.ThemeColor "orange") (ne $.Site.Params.ThemeColor "color" "") }}
-<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.1/static/assets/%s.css"
+<link rel="stylesheet" href="{{ (printf " https://cdn.jsdelivr.net/npm/hugo-terminal@2.1.2/static/assets/%s.css"
   $.Site.Params.ThemeColor) | absURL }}">
 {{ end }}
 
