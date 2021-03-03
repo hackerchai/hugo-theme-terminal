@@ -1,6 +1,6 @@
 {
   "name": "hugo-terminal",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "index.js",
   "author": "Radosław Kozieł <@panr> <radoslaw.koziel@gmail.com>",
   "license": "MIT",
